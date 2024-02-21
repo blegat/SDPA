@@ -1,5 +1,5 @@
 # This file is a component of SDPA
-# Copyright (C) 2004-2012 SDPA Project
+# Copyright (C) 2004-2020 SDPA Project
 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -28,14 +28,15 @@ SDPA_LIB    = ${SDPA_DIR}/lib/libsdpa.a
 MUMPS_DIR   = ${shell grep "^MUMPS_DIR ="      ${SDPA_MAKEFILE} | cut -f2 -d= | sed 's+ ++'}
 MUMPS_INCLUDE   = ${shell grep "^MUMPS_INCLUDE ="  ${SDPA_MAKEFILE} | cut -f2 -d= | sed 's+ ++'}
 MUMPS_LIBS  = ${shell grep "^MUMPS_LIBS ="     ${SDPA_MAKEFILE} | cut -f2 -d= | sed 's+ ++'}
-CC          = ${shell grep "^CC ="           ${SDPA_MAKEFILE} | cut -f2 -d=}
-CFLAGS      = ${shell grep "^CFLAGS = "      ${SDPA_MAKEFILE} | cut -f2 -d=}
-CXX         = ${shell grep "^CXX ="          ${SDPA_MAKEFILE} | cut -f2 -d=}
-CXXFLAGS    = ${shell grep "^CXXFLAGS = "    ${SDPA_MAKEFILE} | cut -f2 -d=}
-FC          = ${shell grep "^FC ="           ${SDPA_MAKEFILE} | cut -f2 -d=}
-FCFLAGS     = ${shell grep "^FCFLAGS = "     ${SDPA_MAKEFILE} | cut -f2 -d=}
-LAPACK_LIBS = ${shell grep "^LAPACK_LIBS = " ${SDPA_MAKEFILE} | cut -f2 -d=}
-BLAS_LIBS   = ${shell grep "^BLAS_LIBS = "   ${SDPA_MAKEFILE} | cut -f2 -d=}
+CC          = ${shell grep "^CC ="           ${SDPA_MAKEFILE} | cut -f2  -d=}
+CFLAGS      = ${shell grep "^CFLAGS = "      ${SDPA_MAKEFILE} | cut -f2- -d=}
+CXX         = ${shell grep "^CXX ="          ${SDPA_MAKEFILE} | cut -f2  -d=}
+CXXFLAGS    = ${shell grep "^CXXFLAGS = "    ${SDPA_MAKEFILE} | cut -f2- -d=}
+CPPFLAGS    = ${shell grep "^CPPFLAGS = "    ${SDPA_MAKEFILE} | cut -f2- -d=}
+FC          = ${shell grep "^FC ="           ${SDPA_MAKEFILE} | cut -f2  -d=}
+FCFLAGS     = ${shell grep "^FCFLAGS = "     ${SDPA_MAKEFILE} | cut -f2- -d=}
+LAPACK_LIBS = ${shell grep "^LAPACK_LIBS = " ${SDPA_MAKEFILE} | cut -f2  -d=}
+BLAS_LIBS   = ${shell grep "^BLAS_LIBS = "   ${SDPA_MAKEFILE} | cut -f2  -d=}
 PTHREAD_INCLUDE= ${shell grep "^PTHREAD_INCLUDE = " ${SDPA_MAKEFILE} | cut -f2 -d=}
 PTHREAD_LIBS= ${shell grep "^PTHREAD_LIBS = " ${SDPA_MAKEFILE} | cut -f2 -d=}
 FCLIBS      = ${shell grep "^FCLIBS = "      ${SDPA_MAKEFILE} | cut -f2 -d=}
@@ -54,6 +55,7 @@ ${TARGET}:
 	echo "CFLAGS      = " ${CFLAGS} >> ${TARGET}
 	echo "CXX         = " ${CXX} >> ${TARGET}
 	echo "CXXFLAGS    = " ${CXXFLAGS} >> ${TARGET}
+	echo "CPPFLAGS    = " ${CPPFLAGS} >> ${TARGET}
 	echo "FC          = " ${FC} >> ${TARGET}
 	echo "FCFLAGS     = " ${FCFLAGS} >> ${TARGET}
 	echo "LAPACK_LIBS = " ${LAPACK_LIBS} >> ${TARGET}

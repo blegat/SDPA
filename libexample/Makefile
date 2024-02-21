@@ -37,9 +37,9 @@ EXE = $(subst .cpp,.exe,$(SRC))
 all: ${EXE}
 
 %.exe: %.o
-	${CXX} ${CXXFLAGS} -o $@ $< ${SDPA_LIBS} 
+	${CXX} ${CXXFLAGS}  ${CPPFLAGS} -o $@ $< ${SDPA_LIBS} 
 .cpp.o:
-	${CXX} -c ${CXXFLAGS} \
+	${CXX} -c ${CXXFLAGS} ${CPPFLAGS} \
 		-I${SDPA_DIR}/include ${MUMPS_INCLUDE} ${PTHREAD_INCLUDE} \
 	        -o $@ $<
 clean:

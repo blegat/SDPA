@@ -33,7 +33,7 @@ libsdpa_a_CXXFLAGS =  $(pthread_cflags) $(MUMPS_INCLUDE) $(PTHREAD_INCLUDE)
 
 bin_PROGRAMS = sdpa
 sdpa_SOURCES = sdpa_exe.cpp
-sdpa_LDADD =  -L. -lsdpa $(MUMPS_LIBS) $(LAPACK_LIBS) $(BLAS_LIBS) $(PTHREAD_LIBS) $(FCLIBS)
+sdpa_LDADD =  ./libsdpa.a $(MUMPS_LIBS) $(LAPACK_LIBS) $(BLAS_LIBS) $(PTHREAD_LIBS) $(FCLIBS)
 sdpa_CXXFLAGS = $(pthread_cflags) $(MUMPS_INCLUDE) $(PTHREAD_INCLUDE)
 
 # each file of mumps is copied by 'nobase' option

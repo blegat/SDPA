@@ -1,3 +1,33 @@
+SDPA 7.3.16 from SDPA 7.3.15 / 2022-07-01 Makoto Yamashita
+	* Change $MUMPS from 5.3.5 to 5.5.0
+
+SDPA 7.3.15 from SDPA 7.3.14 / 2020-11-06 Makoto Yamashita
+	* Change MUMPS from 5.2.1 to 5.3.5
+
+SDPA 7.3.14 from SDPA 7.3.13 / 2020-03-03 Makoto Yamashita
+	* Change 2004-2017 to 2004-2020
+
+SDPA 7.3.13 from SDPA 7.3.12 / 2020-03-04 Makoto Yamashita
+	* Change MUMPS from 5.1.2 to 5.2.1
+	* Update missing
+
+SDPA 7.3.12 from SDPA 7.3.11 / 2019-12-06 Makoto Yamashita
+	* Change MUMPS from 5.1.1 to 5.1.2
+	* Update missing
+
+SDPA 7.3.11 from SDPA 7.3.10 / 2017-12-06 Makoto Yamashita
+	* Add SDPA::resetParameters() function (provided by Tristan Gally)
+
+SDPA 7.3.10 from SDPA 7.3.9 / 2017-10-01 Makoto Yamashita
+	* Remove small bugs
+	* Change MUMPS from 4.9.10 to 5.1.1
+	* Fix some spell miss
+
+SDPA 7.3.9 from SDPA 7.3.8 / 2013-07-07 Makoto Yamashita
+	* Assign the library files to link by full paths
+	* Rename configure.in to configure.ac
+	* Add CPPFLAGS to configure.ac
+
 SDPA 7.3.8 from SDPA 7.3.7 / 2012-04-07 Makoto Yamashita
 	* Fix inside 'index' to 'index2'
 	   in changeIndex of mexReadSDPAToSedumi.cpp

@@ -1,7 +1,7 @@
 /* -------------------------------------------------------------
 
 This file is a component of SDPA
-Copyright (C) 2004-2012 SDPA Project
+Copyright (C) 2004-2020 SDPA Project
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -107,6 +107,12 @@ void Chordal::terminate()
 {
   if (mumps_usage == true) {
     mumps_id.job = MUMPS_JOB_END;
+      // No OUTPUTS
+    mumps_id.icntl[1-1] = -1;
+    mumps_id.icntl[2-1] = -1;
+    mumps_id.icntl[3-1] = -1;
+    mumps_id.icntl[4-1] =  0;
+
     dmumps_c(&mumps_id);
     mumps_usage = false;
   }

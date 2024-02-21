@@ -1,7 +1,7 @@
 /* -------------------------------------------------------------
 
 This file is a component of SDPA
-Copyright (C) 2004-2012 SDPA Project
+Copyright (C) 2004-2020 SDPA Project
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -1452,11 +1452,15 @@ void* Newton::compute_bMat_dense_SDP_thread_func(void *arg)
 
     TimeEnd(B_NDIAG_END1);
     double t = TimeCal(B_NDIAG_START1,B_NDIAG_END1);
+    #if 0
+    // This part is not thread-safe
+    // Do not use this part withouth thread locking
     switch (formula) {
     case F1: targ->com->B_F1 += t; break;
     case F2: targ->com->B_F2 += t; break;
     case F3: targ->com->B_F3 += t; break;
     }
+    #endif
   }
 
   work1.terminate();

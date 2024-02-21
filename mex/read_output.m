@@ -19,7 +19,7 @@ function [objVal,x,X,Y,INFO] = read_output(filename,mDIM,nBLOCK,bLOCKsTRUCT);
 % /* -------------------------------------------------------------
 %
 % This file is a component of SDPA
-% Copyright (C) 2004-2012 SDPA Project
+% Copyright (C) 2004-2020 SDPA Project
 %
 % This program is free software; you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by

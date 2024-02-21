@@ -1,7 +1,7 @@
 /* -------------------------------------------------------------
 
 This file is a component of SDPA
-Copyright (C) 2004-2012 SDPA Project
+Copyright (C) 2004-2020 SDPA Project
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -662,6 +662,7 @@ void IO::printOneIteration(int pIteration,
 	    solveInfo.objValPrimal, solveInfo.objValDual,
 	    alpha.primal, alpha.dual, beta.value);
     #endif
+    fflush(fp);
   }
 }
 

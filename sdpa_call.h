@@ -1,7 +1,7 @@
 /* -------------------------------------------------------------
 
 This file is a component of SDPA
-Copyright (C) 2004-2012 SDPA Project
+Copyright (C) 2004-2020 SDPA Project
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -167,6 +167,7 @@ public:
   void initializeUpperTriangleSpace();
   void initializeUpperTriangle(bool inputTwiceCheck = false);
   void initializeSolve();
+  void resetParameters();
   
   void solve();
 

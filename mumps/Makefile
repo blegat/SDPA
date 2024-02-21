@@ -1,4 +1,4 @@
-MUMPS_VER = 4.10.0.dfsg
+MUMPS_VER = 5.5.0
 MUMPS_TAR_FILE = mumps_${MUMPS_VER}.orig.tar.gz
 
 SDPA_MAKEFILE = ../Makefile
@@ -25,14 +25,15 @@ all: build/lib/libdmumps.a
 build/lib/libdmumps.a:${MUMPS_TAR_FILE}
 	rm -rf build;
 	tar xzf ${MUMPS_TAR_FILE}
-	mv mumps-${MUMPS_VER}/ build;
+	# mv mumps-${MUMPS_VER}/ build;
+	mv MUMPS_${MUMPS_VER}/ build;
 	cd build; cp Make.inc/Makefile.inc.generic.SEQ Makefile.inc;
 
 	cd build; echo "CC = "   ${CC}       >> Makefile.inc;
 	cd build; echo "FC = "   ${FC}       >> Makefile.inc;
 	cd build; echo "FL = "   ${FC}       >> Makefile.inc;
 	cd build; echo "OPTC = " ${CFLAGS}  ${PTHREAD_INCLUDE} >> Makefile.inc;
-	cd build; echo "OPTF = " ${FCFLAGS} ${PTHREAD_INCLUDE}  >> Makefile.inc;
+	cd build; echo "OPTF = " ${FCFLAGS} -fallow-argument-mismatch ${PTHREAD_INCLUDE}  >> Makefile.inc;
 	cd build; echo "OPTL = " ${FCFLAGS} ${PTHREAD_INCLUDE}  >> Makefile.inc;
 	cd build; echo "LPORDDIR = "`pwd`"/PORD/lib/"     >> Makefile.inc;
 	cd build; echo "IPORDDIR = "`pwd`"/PORD/include/" >> Makefile.inc;

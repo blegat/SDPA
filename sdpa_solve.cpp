@@ -1,7 +1,7 @@
 /* -------------------------------------------------------------
 
 This file is a component of SDPA
-Copyright (C) 2004-2012 SDPA Project
+Copyright (C) 2004-2020 SDPA Project
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -60,6 +60,20 @@ void SDPA::initializeSolve()
     phase.initialize(initRes, solveInfo, param, currentPt.nDim);
   }
   // writeInputSparse((char*)"tmp.dat-s",(char*)"%+8.3e");
+}
+
+void SDPA::resetParameters()
+{
+  if (isInitPoint == false) {
+    mu.initialize(param.lambdaStar);
+    initRes.initialize(m, bs, inputData, currentPt);
+    currentRes.copyFrom(initRes);
+    beta.initialize(param.betaStar);
+    theta.initialize(param, initRes);
+    solveInfo.initialize(inputData, currentPt, mu.initial,
+          param.omegaStar);
+    phase.initialize(initRes, solveInfo, param, currentPt.nDim);
+  }
 }
 
 void SDPA::solve()

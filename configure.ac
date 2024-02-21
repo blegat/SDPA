@@ -1,9 +1,9 @@
 dnl
 dnl Configure for SDPA 
-dnl Copyright (C) 2004-2012 SDPA Project
+dnl Copyright (C) 2004-2022 SDPA Project
 dnl
 
-AC_INIT(sdpa, 7.3.8)
+AC_INIT(sdpa, 7.3.16)
 AM_INIT_AUTOMAKE
 AC_PROG_RANLIB
 AC_PROG_CC
@@ -24,12 +24,12 @@ PTHREAD_LIBS=$withval
 )
 
 AC_ARG_WITH(blas,
-[  --with-blas             Gives BLAS name you use(e.g., "-L/usr/lib -lblas")],
+[  --with-blas             Gives BLAS full name you use(e.g., "/usr/lib/liblblas.a")],
 BLAS_LIBS=$withval
 )
 
 AC_ARG_WITH(lapack,
-[  --with-lapack           Gives LAPACK name you use(e.g., "-L/usr/lib -llapack")],
+[  --with-lapack           Gives LAPACK full name you use(e.g., "/usr/lib/liblapack.a")],
 LAPACK_LIBS=$withval
 )
 
@@ -39,7 +39,7 @@ MUMPS_INCLUDE=$withval
 )
 
 AC_ARG_WITH(mumps-libs,
-[  --with-mumps-libs       Gives MUMPS library you use(e.g., "-L/usr/lib -ldmumps_seq    or   -L/usr/lib/mumps/lib -ldmumps -lmumps_common -lpord -L/usr/lib/mumps/libseq -lmpiseq")],
+[  --with-mumps-libs       Gives MUMPS library you use(e.g., "/usr/lib/libdmumps_seq.a /usr/lib/libmumps_common_seq.a /usr/lib/libmpiseq_seq.a /usr/lib/libpord_seq.a    or   /usr/lib/mumps/lib/libdmumps.a /usr/lib/mumps/lib/libmumps_common.a /usr/lib/mumps/lib/libpord.a /usr/lib/mumps/libseq/libmpiseq.a")],
 MUMPS_LIBS=$withval
 )
 
@@ -61,6 +61,7 @@ FCFLAGS="$FCFLAGS -Wall -fPIC -funroll-all-loops"
 
 AC_SUBST(CFLAGS)
 AC_SUBST(CXXFLAGS)
+AC_SUBST(CPPFLAGS)
 AC_SUBST(FCFLAGS)
 AC_SUBST(FCLIBS)
 
@@ -150,7 +151,7 @@ if test x"$MUMPS_INCLUDE" = x; then
   MUMPS_INCLUDE="-I/usr/include"
 fi
 if test x"$MUMPS_LIBS" = x; then
-   MUMPS_LIBS="-ldmumps_seq"
+   MUMPS_LIBS="/usr/lib/libdmumps_seq.a /usr/lib/libmumps_common_seq.a /usr/lib/libmpiseq_seq.a /usr/lib/libpord_seq.a"
 fi
 save_LIBS="$LIBS"
 AC_FC_FUNC(dmumps)

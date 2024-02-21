@@ -33,7 +33,7 @@
 # make MAKE_INCLUDE_DIR=../etc DEVELOPEMENT_STAGE=1 COMPILE_ENVIRONMENT=octave
 
 # This file is a component of SDPA
-# Copyright (C) 2004-2012 SDPA Project
+# Copyright (C) 2004-2020 SDPA Project
 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -98,8 +98,8 @@ PRINTF_INT_STYLE = -DPRINTF_INT_STYLE=\\\"%zd\\\"
 OUTPUT_FORMAT =
 
 ifeq ($(COMPILE_ENVIRONMENT),octave)
-        MEX = CC=${CC} CXX=${CXX} mkoctfile --mex
-        CXXFLAGSOPTIONS =
+        MEX = CC=${CC} CXX=${CXX} CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" CPPFLAGS="${CPPFLAGS}" mkoctfile --mex
+        CXXFLAGSOPTIONS = 
         LARGEARRAYOPTION =
 	PRINTF_INT_STYLE = -DPRINTF_INT_STYLE=\\\"%d\\\"
 endif
@@ -160,11 +160,13 @@ mexWriteSedumiToSDPA:
 	  ${OUTPUT_FORMAT} \
 	  ${ALL_OPTION}  ${MATLAB_INCLUDE} \
 	  mexWriteSedumiToSDPA.cpp ${MATLAB_LIBS}
+
 mexReadSDPAToSedumi:
 	${MEX} \
 	  ${OUTPUT_FORMAT} \
 	  ${ALL_OPTION}  ${MATLAB_INCLUDE} \
 	  mexReadSDPAToSedumi.cpp ${MATLAB_LIBS}
+
 mexReadOutput:
 	${MEX} \
 	  ${OUTPUT_FORMAT} \
