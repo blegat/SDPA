@@ -1,3 +1,6 @@
+SDPA 7.3.16 from SDPA 7.3.16 / 2023-06-22 Makoto Yamashita
+	* Change $MUMPS from 5.5.0 to 5.5.1
+
 SDPA 7.3.16 from SDPA 7.3.15 / 2022-07-01 Makoto Yamashita
 	* Change $MUMPS from 5.3.5 to 5.5.0
 

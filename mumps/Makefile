@@ -1,4 +1,4 @@
-MUMPS_VER = 5.5.0
+MUMPS_VER = 5.5.1
 MUMPS_TAR_FILE = mumps_${MUMPS_VER}.orig.tar.gz
 
 SDPA_MAKEFILE = ../Makefile
